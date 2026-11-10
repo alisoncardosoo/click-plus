@@ -1,0 +1,576 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0150D929E8CE2C5F644D3F80 /* AccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C522FFD41A3136F9D00D962D /* AccessibilityService.swift */; };
+		06BE969B18B8645740E18C03 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475699F545553C28F93CC866 /* AppState.swift */; };
+		06ECA98FB7FBFFE8901ACA73 /* InputBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A305823FA0E65236DCB8FD /* InputBehaviorTests.swift */; };
+		132948AE192080C77BCC776C /* WindowDockBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A276B7119EB3034D5EFA6 /* WindowDockBridge.swift */; };
+		1A5B492E94EFDAFD0754C2A0 /* ActionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E2FA07C67CE1E4FD765540 /* ActionService.swift */; };
+		1C57E1B598686C11F4F05657 /* LogitechCompatibilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C8DDBC4BE3E1F10E5B5A07 /* LogitechCompatibilityTests.swift */; };
+		2324330378E393EF50B377CF /* EventEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F584BF1081AB92E632A7C35A /* EventEngine.swift */; };
+		51605236A50FB19DB0142E1C /* ClickPlusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119A2DECEC9EED0BC667F46 /* ClickPlusApp.swift */; };
+		5A7551F49EA255BEA59A81BE /* MenuPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE6A743DA679C56A255A12 /* MenuPanel.swift */; };
+		5D1DE708F40AC16023BC22F9 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14504AB66FBF973AAE68F78F /* Preferences.swift */; };
+		5D9B764654D7907699A8EC73 /* Controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F51CC37548F1FBF0D4A21DE /* Controls.swift */; };
+		63C9D6E8389D94EF579A3920 /* ButtonSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D6E91F562E9D22EC8D6670 /* ButtonSettings.swift */; };
+		643CF3CBC3ACB84420C75409 /* HardwareService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142F280E80F7B8D9C5DE6132 /* HardwareService.swift */; };
+		6608B0094BB72FC0C29014EC /* TrackpadSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B2D68CE3285F81A10353A /* TrackpadSettings.swift */; };
+		7643201FE0DC7BF8E7A32D3A /* ScrollSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091ED5C28C28394739B433F /* ScrollSettings.swift */; };
+		7FAA74801134E3DB2B4043BF /* ButtonActionEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C8C63C97F66F15DFBCFE2A /* ButtonActionEditor.swift */; };
+		91A226644610257BEB700F4F /* DeviceIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9817091FAA414F759D8FF1CE /* DeviceIdentity.swift */; };
+		9602F10FCB8B12C0B72BC451 /* TrackpadEdges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173C7F8CC8FE4ABAB5736CAC /* TrackpadEdges.swift */; };
+		C0B3F0DAABB2E4C1BEB1717C /* KeyboardSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89537A585000375C6D7635C /* KeyboardSettings.swift */; };
+		C34315B74BD8C3575269B284 /* TrackpadEdgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC9A87E44CBCD5A20B4DD5 /* TrackpadEdgeTests.swift */; };
+		C5681B2E6EAEF214847D43D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61D4C68A82201E7B6A4BA35 /* Assets.xcassets */; };
+		C9075FAFA2B7ADC18E308045 /* MouseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B3BAC88D5D7F3EFBCF2C9D /* MouseSettings.swift */; };
+		C91898A805997F5248FCB7E5 /* ButtonCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE0F77176A37F265522EBA0 /* ButtonCapture.swift */; };
+		CA655E93F2AEFDAA093CFB5A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89433A5D2407C34C93817FDB /* ContentView.swift */; };
+		D5E7420CFF1298CCBD3BD196 /* PointerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F0B8874E22329FDC3A569 /* PointerController.swift */; };
+		EAE52F743D7AD142F21F17B9 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826D9B6836B0E14972CBD5D9 /* CoreTests.swift */; };
+		EF8C9C2FF09D67772B39C1D1 /* TrackpadEdgeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9A725F704DAB36DF9FF90A /* TrackpadEdgeService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		411F96F434282FF09E729CB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30D899106644B1E288DEB19F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0CF6661BF2E331261AEF9E8;
+			remoteInfo = ClickPlus;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		12AE1A56AFE2578716CF276D /* MultitouchTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultitouchTypes.h; sourceTree = "<group>"; };
+		142F280E80F7B8D9C5DE6132 /* HardwareService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareService.swift; sourceTree = "<group>"; };
+		14504AB66FBF973AAE68F78F /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		173C7F8CC8FE4ABAB5736CAC /* TrackpadEdges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackpadEdges.swift; sourceTree = "<group>"; };
+		21940EE5865EBD505767BE72 /* ClickPlusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClickPlusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AEC9A87E44CBCD5A20B4DD5 /* TrackpadEdgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackpadEdgeTests.swift; sourceTree = "<group>"; };
+		475699F545553C28F93CC866 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		55E2FA07C67CE1E4FD765540 /* ActionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionService.swift; sourceTree = "<group>"; };
+		5DCF5AA16073DF4FBAAF7092 /* ClickPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClickPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		67B3BAC88D5D7F3EFBCF2C9D /* MouseSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseSettings.swift; sourceTree = "<group>"; };
+		6AE0F77176A37F265522EBA0 /* ButtonCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCapture.swift; sourceTree = "<group>"; };
+		7119A2DECEC9EED0BC667F46 /* ClickPlusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickPlusApp.swift; sourceTree = "<group>"; };
+		8091ED5C28C28394739B433F /* ScrollSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollSettings.swift; sourceTree = "<group>"; };
+		826D9B6836B0E14972CBD5D9 /* CoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTests.swift; sourceTree = "<group>"; };
+		846B2D68CE3285F81A10353A /* TrackpadSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackpadSettings.swift; sourceTree = "<group>"; };
+		89433A5D2407C34C93817FDB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8F9A725F704DAB36DF9FF90A /* TrackpadEdgeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackpadEdgeService.swift; sourceTree = "<group>"; };
+		96C8C63C97F66F15DFBCFE2A /* ButtonActionEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonActionEditor.swift; sourceTree = "<group>"; };
+		9817091FAA414F759D8FF1CE /* DeviceIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceIdentity.swift; sourceTree = "<group>"; };
+		9F51CC37548F1FBF0D4A21DE /* Controls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controls.swift; sourceTree = "<group>"; };
+		AA8A276B7119EB3034D5EFA6 /* WindowDockBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowDockBridge.swift; sourceTree = "<group>"; };
+		B4D6E91F562E9D22EC8D6670 /* ButtonSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSettings.swift; sourceTree = "<group>"; };
+		B61D4C68A82201E7B6A4BA35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C522FFD41A3136F9D00D962D /* AccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityService.swift; sourceTree = "<group>"; };
+		DE1F0B8874E22329FDC3A569 /* PointerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerController.swift; sourceTree = "<group>"; };
+		E2C8DDBC4BE3E1F10E5B5A07 /* LogitechCompatibilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogitechCompatibilityTests.swift; sourceTree = "<group>"; };
+		E4A305823FA0E65236DCB8FD /* InputBehaviorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBehaviorTests.swift; sourceTree = "<group>"; };
+		F584BF1081AB92E632A7C35A /* EventEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEngine.swift; sourceTree = "<group>"; };
+		F6BE6A743DA679C56A255A12 /* MenuPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPanel.swift; sourceTree = "<group>"; };
+		F89537A585000375C6D7635C /* KeyboardSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardSettings.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		3B4B5BB918A4D0ECB0DACF80 /* ClickPlus */ = {
+			isa = PBXGroup;
+			children = (
+				B61D4C68A82201E7B6A4BA35 /* Assets.xcassets */,
+				FB2B645F2787E17A612099A8 /* App */,
+				9C06D1DA0393BDF8AA2432AD /* Models */,
+				9B0CE439337055FCCDA8966C /* Services */,
+				D8A797831E537B210D53C961 /* Stores */,
+				EFA8F4B501AF7D7424A45DAA /* Support */,
+				CAE45C79D871FD93D7E2362C /* Views */,
+			);
+			path = ClickPlus;
+			sourceTree = "<group>";
+		};
+		892F6723892F9D19F15B0EA8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5DCF5AA16073DF4FBAAF7092 /* ClickPlus.app */,
+				21940EE5865EBD505767BE72 /* ClickPlusTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9B0CE439337055FCCDA8966C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C522FFD41A3136F9D00D962D /* AccessibilityService.swift */,
+				55E2FA07C67CE1E4FD765540 /* ActionService.swift */,
+				9817091FAA414F759D8FF1CE /* DeviceIdentity.swift */,
+				F584BF1081AB92E632A7C35A /* EventEngine.swift */,
+				142F280E80F7B8D9C5DE6132 /* HardwareService.swift */,
+				DE1F0B8874E22329FDC3A569 /* PointerController.swift */,
+				8F9A725F704DAB36DF9FF90A /* TrackpadEdgeService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9C06D1DA0393BDF8AA2432AD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6AE0F77176A37F265522EBA0 /* ButtonCapture.swift */,
+				14504AB66FBF973AAE68F78F /* Preferences.swift */,
+				173C7F8CC8FE4ABAB5736CAC /* TrackpadEdges.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A4812CC09AE2C5A695C10205 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				826D9B6836B0E14972CBD5D9 /* CoreTests.swift */,
+				E4A305823FA0E65236DCB8FD /* InputBehaviorTests.swift */,
+				E2C8DDBC4BE3E1F10E5B5A07 /* LogitechCompatibilityTests.swift */,
+				3AEC9A87E44CBCD5A20B4DD5 /* TrackpadEdgeTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		CAE45C79D871FD93D7E2362C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				96C8C63C97F66F15DFBCFE2A /* ButtonActionEditor.swift */,
+				B4D6E91F562E9D22EC8D6670 /* ButtonSettings.swift */,
+				89433A5D2407C34C93817FDB /* ContentView.swift */,
+				9F51CC37548F1FBF0D4A21DE /* Controls.swift */,
+				F89537A585000375C6D7635C /* KeyboardSettings.swift */,
+				F6BE6A743DA679C56A255A12 /* MenuPanel.swift */,
+				67B3BAC88D5D7F3EFBCF2C9D /* MouseSettings.swift */,
+				8091ED5C28C28394739B433F /* ScrollSettings.swift */,
+				846B2D68CE3285F81A10353A /* TrackpadSettings.swift */,
+				AA8A276B7119EB3034D5EFA6 /* WindowDockBridge.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D8A797831E537B210D53C961 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				475699F545553C28F93CC866 /* AppState.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		EFA8F4B501AF7D7424A45DAA /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				12AE1A56AFE2578716CF276D /* MultitouchTypes.h */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		F0E785441C235E6D9DE095EB = {
+			isa = PBXGroup;
+			children = (
+				3B4B5BB918A4D0ECB0DACF80 /* ClickPlus */,
+				A4812CC09AE2C5A695C10205 /* Tests */,
+				892F6723892F9D19F15B0EA8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB2B645F2787E17A612099A8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7119A2DECEC9EED0BC667F46 /* ClickPlusApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		750BCB0772E708883A1FA47C /* ClickPlusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4991BEC94C0CA22FDD4E81C8 /* Build configuration list for PBXNativeTarget "ClickPlusTests" */;
+			buildPhases = (
+				EF3AD925F1A9ED5A6493C440 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35D2A305AAD2A0D496FE3000 /* PBXTargetDependency */,
+			);
+			name = ClickPlusTests;
+			packageProductDependencies = (
+			);
+			productName = ClickPlusTests;
+			productReference = 21940EE5865EBD505767BE72 /* ClickPlusTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D0CF6661BF2E331261AEF9E8 /* ClickPlus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD8EE8A516D9E966A0BE53DC /* Build configuration list for PBXNativeTarget "ClickPlus" */;
+			buildPhases = (
+				AEC1A3458BB515CD8202DE82 /* Sources */,
+				F7EEE703545BAA5F8E2F1391 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClickPlus;
+			packageProductDependencies = (
+			);
+			productName = ClickPlus;
+			productReference = 5DCF5AA16073DF4FBAAF7092 /* ClickPlus.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		30D899106644B1E288DEB19F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					750BCB0772E708883A1FA47C = {
+						DevelopmentTeam = A4DR63XYGA;
+						ProvisioningStyle = Manual;
+					};
+					D0CF6661BF2E331261AEF9E8 = {
+						DevelopmentTeam = A4DR63XYGA;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 244D8A56901B3235A7852B3B /* Build configuration list for PBXProject "ClickPlus" */;
+			developmentRegion = "pt-BR";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				"pt-BR",
+			);
+			mainGroup = F0E785441C235E6D9DE095EB;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 892F6723892F9D19F15B0EA8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D0CF6661BF2E331261AEF9E8 /* ClickPlus */,
+				750BCB0772E708883A1FA47C /* ClickPlusTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F7EEE703545BAA5F8E2F1391 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5681B2E6EAEF214847D43D3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AEC1A3458BB515CD8202DE82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0150D929E8CE2C5F644D3F80 /* AccessibilityService.swift in Sources */,
+				1A5B492E94EFDAFD0754C2A0 /* ActionService.swift in Sources */,
+				06BE969B18B8645740E18C03 /* AppState.swift in Sources */,
+				7FAA74801134E3DB2B4043BF /* ButtonActionEditor.swift in Sources */,
+				C91898A805997F5248FCB7E5 /* ButtonCapture.swift in Sources */,
+				63C9D6E8389D94EF579A3920 /* ButtonSettings.swift in Sources */,
+				51605236A50FB19DB0142E1C /* ClickPlusApp.swift in Sources */,
+				CA655E93F2AEFDAA093CFB5A /* ContentView.swift in Sources */,
+				5D9B764654D7907699A8EC73 /* Controls.swift in Sources */,
+				91A226644610257BEB700F4F /* DeviceIdentity.swift in Sources */,
+				2324330378E393EF50B377CF /* EventEngine.swift in Sources */,
+				643CF3CBC3ACB84420C75409 /* HardwareService.swift in Sources */,
+				C0B3F0DAABB2E4C1BEB1717C /* KeyboardSettings.swift in Sources */,
+				5A7551F49EA255BEA59A81BE /* MenuPanel.swift in Sources */,
+				C9075FAFA2B7ADC18E308045 /* MouseSettings.swift in Sources */,
+				D5E7420CFF1298CCBD3BD196 /* PointerController.swift in Sources */,
+				5D1DE708F40AC16023BC22F9 /* Preferences.swift in Sources */,
+				7643201FE0DC7BF8E7A32D3A /* ScrollSettings.swift in Sources */,
+				EF8C9C2FF09D67772B39C1D1 /* TrackpadEdgeService.swift in Sources */,
+				9602F10FCB8B12C0B72BC451 /* TrackpadEdges.swift in Sources */,
+				6608B0094BB72FC0C29014EC /* TrackpadSettings.swift in Sources */,
+				132948AE192080C77BCC776C /* WindowDockBridge.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF3AD925F1A9ED5A6493C440 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAE52F743D7AD142F21F17B9 /* CoreTests.swift in Sources */,
+				06ECA98FB7FBFFE8901ACA73 /* InputBehaviorTests.swift in Sources */,
+				1C57E1B598686C11F4F05657 /* LogitechCompatibilityTests.swift in Sources */,
+				C34315B74BD8C3575269B284 /* TrackpadEdgeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		35D2A305AAD2A0D496FE3000 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0CF6661BF2E331261AEF9E8 /* ClickPlus */;
+			targetProxy = 411F96F434282FF09E729CB5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0074FEC3C3DC31652907103D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = A4DR63XYGA;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = ClickPlus/Support/MultitouchTypes.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		196537A2E91A75FF475C66CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.clickplus.ClickPlusTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Click +.app/Contents/MacOS/ClickPlus";
+			};
+			name = Release;
+		};
+		22B9673CD97EEB4D21684F4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = A4DR63XYGA;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = ClickPlus/Support/MultitouchTypes.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7C8E9A20C4158F2FC830CC37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_NAME = ClickPlus;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDevelopmentRegion = pt_BR;
+				INFOPLIST_KEY_CFBundleDisplayName = "Click +";
+				INFOPLIST_KEY_CFBundleName = "Click +";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSInputMonitoringUsageDescription = "Identificar os eventos do seu mouse sem alterar o trackpad.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.ratoesperto.app;
+				PRODUCT_MODULE_NAME = ClickPlus;
+				PRODUCT_NAME = "Click +";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D1BED1D8B5E931E6F2A7B662 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.clickplus.ClickPlusTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Click +.app/Contents/MacOS/ClickPlus";
+			};
+			name = Debug;
+		};
+		F3B8306DDC18F010D8AF2AB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_NAME = ClickPlus;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDevelopmentRegion = pt_BR;
+				INFOPLIST_KEY_CFBundleDisplayName = "Click +";
+				INFOPLIST_KEY_CFBundleName = "Click +";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSInputMonitoringUsageDescription = "Identificar os eventos do seu mouse sem alterar o trackpad.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.ratoesperto.app;
+				PRODUCT_MODULE_NAME = ClickPlus;
+				PRODUCT_NAME = "Click +";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		244D8A56901B3235A7852B3B /* Build configuration list for PBXProject "ClickPlus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22B9673CD97EEB4D21684F4D /* Debug */,
+				0074FEC3C3DC31652907103D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4991BEC94C0CA22FDD4E81C8 /* Build configuration list for PBXNativeTarget "ClickPlusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1BED1D8B5E931E6F2A7B662 /* Debug */,
+				196537A2E91A75FF475C66CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AD8EE8A516D9E966A0BE53DC /* Build configuration list for PBXNativeTarget "ClickPlus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C8E9A20C4158F2FC830CC37 /* Debug */,
+				F3B8306DDC18F010D8AF2AB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 30D899106644B1E288DEB19F /* Project object */;
+}

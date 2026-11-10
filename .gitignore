@@ -1,0 +1,16 @@
+.build/
+build-test/
+build/
+dist/
+*.xcuserstate
+xcuserdata/
+.DS_Store
+
+# Credenciais e configurações locais
+.env
+.env.*
+!.env.example
+*.p12
+*.pfx
+*.mobileprovision
+*.xcresult/
