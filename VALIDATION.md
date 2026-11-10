@@ -162,3 +162,11 @@ A janela de teste de velocidade/rolagem não registrou eventos físicos; ajustes
 - Respostas HID++ agora são filtradas também pelo dispositivo de origem, além de endereço/feature/software ID. Desconectar um teclado não cancela desnecessariamente o mouse.
 - 50 testes aprovados; novos testes usam descritores simulados de famílias MX, G, M e ERGO, e rejeitam teclados, trackpads, receptores genéricos e dispositivos virtuais. Isso não é aceite físico desses modelos.
 - Build final aprovado e app aberto. Nesta execução não há Logitech conectado para comprovar modelo real. Usuário informou não ter outro dispositivo para teste. Modelos confirmados fisicamente permanecem M650 L e K950 de sessões anteriores.
+
+## Release pública 0.1.0 e instalação — 10/11/2026
+
+- README atualizado para repositório público, clonagem sem autenticação e instalação pelo pacote de release. Licença permanece não definida.
+- Versão 0.1.0, build 1, configurada em project.yml e projeto Xcode regenerado. Script package_release.sh compila em Release para arm64 e x86_64, valida assinatura/arquiteturas e gera ZIP com SHA-256 em dist/.
+- 50 testes passaram. Build Release universal aprovado e assinatura Apple Development validada por codesign --verify --deep --strict. Sem Developer ID ou notarização; não há garantia de aceitação pelo Gatekeeper em outro Mac. Execução Intel não validada fisicamente.
+- ZIP extraído e instalado em /Applications/Click +.app. Executável instalado com SHA-256 idêntico ao build Release. Processo confirmado nesse caminho e interface real inspecionada: M650 L, K950, velocidade 1,3, captura lateral e inicialização com o macOS preservados; Acessibilidade exibida como permitida.
+- Verificação desta etapa confirma instalação e abertura; não substitui novo aceite físico de todos os controles ou da sensação háptica.

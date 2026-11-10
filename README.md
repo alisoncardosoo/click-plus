@@ -53,7 +53,9 @@ A identificação do dispositivo orienta o processamento: ajustes do mouse são 
 
 **Em desenvolvimento, com execução local pelo Xcode.** O projeto contém o aplicativo e testes automatizados; as evidências e os limites de validação estão em [VALIDATION.md](VALIDATION.md) e [AUDITORIA.md](AUDITORIA.md).
 
-O código está no repositório privado [alisoncardosoo/click-plus](https://github.com/alisoncardosoo/click-plus). Não há distribuição pública de binários ou notarização configurada neste checkout. O aplicativo é gerado localmente como `Click +.app`. Não há site, API ou serviço de produção necessário para utilizá-lo.
+O código está no repositório público [alisoncardosoo/click-plus](https://github.com/alisoncardosoo/click-plus). O app empacotado está disponível nas [Releases](https://github.com/alisoncardosoo/click-plus/releases/latest). Não há site, API ou serviço de produção necessário para utilizá-lo.
+
+A versão `0.1.0` é experimental, compilada em Release para Apple Silicon e Intel, com macOS 14 ou superior. O pacote usa assinatura Apple Development e **não é notarizado**; não equivale a uma distribuição Developer ID aprovada pelo Gatekeeper. Outros Macs podem bloquear sua abertura.
 
 ## Funcionalidades
 
@@ -126,7 +128,17 @@ O projeto não implementa firmware, pareamento, macros ou perfis por aplicativo.
 
 ## Instalação
 
-### Requisitos
+### Instalar o app empacotado
+
+1. Acesse a [release mais recente](https://github.com/alisoncardosoo/click-plus/releases/latest) e baixe `ClickPlus-0.1.0-macOS-universal.zip`.
+2. Extraia o ZIP e mova `Click +.app` para a pasta **Aplicativos**.
+3. Abra o aplicativo e siga as instruções de [primeiro uso](#primeiro-uso).
+
+O arquivo `SHA256SUMS.txt` da release permite conferir a integridade do ZIP com `shasum -a 256`. A assinatura Apple Development não garante aceitação em outros Macs. Se o macOS bloquear o aplicativo, consulte a mensagem em **Ajustes do Sistema → Privacidade e Segurança**; a autorização de abertura, quando disponível, deve ser feita conscientemente pelo usuário. O pacote não altera as proteções do sistema.
+
+### Compilar a partir do código
+
+#### Requisitos
 
 - Mac com **macOS 14 ou superior**.
 - Xcode com SDK compatível e ferramentas de linha de comando selecionadas.
@@ -135,7 +147,7 @@ O projeto não implementa firmware, pareamento, macros ou perfis por aplicativo.
 
 ### Obter o código
 
-Com acesso ao repositório privado e autenticação GitHub configurada, clone o projeto:
+O repositório é público e pode ser clonado sem autenticação:
 
 ```sh
 git clone https://github.com/alisoncardosoo/click-plus.git
@@ -263,6 +275,14 @@ Compile e confirme que o processo abriu:
 
 Não execute build e testes simultaneamente na mesma pasta DerivedData. O log de compilação do script fica em `/tmp/clickplus-build.log`.
 
+Para gerar o pacote universal de uma release:
+
+```sh
+./script/package_release.sh
+```
+
+O script compila em configuração Release, verifica a assinatura e as duas arquiteturas e gera um ZIP com checksum em `dist/`. Ele não publica no GitHub nem realiza notarização. A versão vem das configurações `MARKETING_VERSION` e `CURRENT_PROJECT_VERSION` de `project.yml`; regenere o projeto com XcodeGen após alterá-las.
+
 Os testes cobrem modelos, matemática de rolagem, decisões sobre entrada, identificação de dispositivos e reconhecimento de bordas. Testes simulados não substituem validação física de transporte, bateria, botões, player ou sensação háptica. Consulte [VALIDATION.md](VALIDATION.md) para as evidências por etapa.
 
 ## Solução de problemas
@@ -319,7 +339,7 @@ Antes de propor uma alteração, consulte [AUDITORIA.md](AUDITORIA.md) para conh
 2. Prepare uma branch com uma mudança de escopo claro; preserve preferências existentes e o isolamento entre dispositivos.
 3. Mantenha a divisão entre modelos, serviços, estado e interface. Use português nos textos voltados ao usuário.
 4. Execute testes pertinentes e build; registre separadamente os testes automatizados e a validação física.
-5. Com acesso ao repositório privado, envie a proposta por issue ou pull request, incluindo evidências e limitações.
+5. Abra uma issue ou envie um pull request a partir de um fork, incluindo evidências e limitações.
 
 A licença de uso e distribuição ainda precisa ser definida antes de tratar o código como open source.
 
