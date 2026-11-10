@@ -7,8 +7,8 @@ options:
 settings:
   base:
     SWIFT_VERSION: '5.0'
-    MARKETING_VERSION: '0.1.0'
-    CURRENT_PROJECT_VERSION: '1'
+    MARKETING_VERSION: '0.2.0'
+    CURRENT_PROJECT_VERSION: '2'
     SWIFT_OBJC_BRIDGING_HEADER: ClickPlus/Support/MultitouchTypes.h
     CODE_SIGN_IDENTITY: 'Apple Development'
     DEVELOPMENT_TEAM: A4DR63XYGA
@@ -33,6 +33,7 @@ targets:
         INFOPLIST_KEY_CFBundleDevelopmentRegion: pt_BR
         INFOPLIST_KEY_CFBundleDisplayName: Click +
         INFOPLIST_KEY_LSUIElement: YES
+        INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription: Consultar a bateria de cada lado dos seus fones Samsung conectados.
         INFOPLIST_KEY_NSInputMonitoringUsageDescription: Identificar os eventos do seu mouse sem alterar o trackpad.
     scheme:
       testTargets: [ClickPlusTests]

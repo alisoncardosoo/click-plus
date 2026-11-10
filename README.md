@@ -55,7 +55,7 @@ A identificação do dispositivo orienta o processamento: ajustes do mouse são 
 
 O código está no repositório público [alisoncardosoo/click-plus](https://github.com/alisoncardosoo/click-plus). O app empacotado está disponível nas [Releases](https://github.com/alisoncardosoo/click-plus/releases/latest). Não há site, API ou serviço de produção necessário para utilizá-lo.
 
-A versão `0.1.0` é experimental, compilada em Release para Apple Silicon e Intel, com macOS 14 ou superior. O pacote usa assinatura Apple Development e **não é notarizado**; não equivale a uma distribuição Developer ID aprovada pelo Gatekeeper. Outros Macs podem bloquear sua abertura.
+A versão `0.2.0` é experimental, compilada em Release para Apple Silicon e Intel, com macOS 14 ou superior. O pacote usa assinatura Apple Development e **não é notarizado**; não equivale a uma distribuição Developer ID aprovada pelo Gatekeeper. Outros Macs podem bloquear sua abertura.
 
 ## Funcionalidades
 
@@ -69,7 +69,9 @@ A versão `0.1.0` é experimental, compilada em Release para Apple Silicon e Int
 | **Retorno háptico** | Pulso por etapa ou ação reconhecida, com opção de desligar; requer Force Touch. |
 | **Dispositivos** | Seleção do mouse Logitech e leitura de modelo/bateria quando disponível. |
 | **Teclado** | Identificação e bateria de teclados Logitech compatíveis. |
-| **Barra de menus** | Painel de acesso às configurações e acompanhamento de bateria. |
+| **Bluetooth** | Bateria de fones e outros periféricos conectados, conforme os níveis informados pelo macOS. |
+| **Barra de menus** | Painel de baterias dos dispositivos conectados e acesso às configurações. |
+| **Avisos de bateria** | Notificações opcionais com limites de bateria baixa e crítica, som e controle de repetição. |
 | **Ajustes** | Inicialização com o macOS, ajuda dos controles e contadores locais de entrada. |
 
 <details>
@@ -126,11 +128,13 @@ As configurações do mouse são globais e aplicadas ao dispositivo selecionado;
 
 O projeto não implementa firmware, pareamento, macros ou perfis por aplicativo. Não instala agentes privilegiados.
 
+Fones e outros acessórios Bluetooth são listados na área **Bluetooth** e no painel de baterias quando conectados. A consulta local usa `system_profiler`, em segundo plano, a cada 30 segundos. Para **Samsung Galaxy Buds2**, o app mantém o canal de status RFCOMM do fone já conectado e pareado aberto para receber a bateria de cada lado e do estojo em tempo real, sem enviar comandos ou alterar configurações. A leitura física confirmou níveis independentes esquerdo e direito. O canal permanece ativo enquanto o fone está conectado e é encerrado ao sair do app ou detectar a desconexão. Ao fechar a tampa, a última leitura válida do estojo é mantida durante a execução do app, com indicação de data e hora. Uma nova leitura substitui esse valor. Sem nenhuma leitura anterior, a linha Estojo orienta a abrir a tampa com pelo menos um fone dentro e atualizar. Dispositivos desconectados são ocultados no painel da barra de menus. Outros modelos dependem dos dados do macOS; acessórios sem leitura mostram “Bateria não informada”. A leitura direta ainda não é declarada compatível com outras gerações Galaxy Buds.
+
 ## Instalação
 
 ### Instalar o app empacotado
 
-1. Acesse a [release mais recente](https://github.com/alisoncardosoo/click-plus/releases/latest) e baixe `ClickPlus-0.1.0-macOS-universal.zip`.
+1. Acesse a [release mais recente](https://github.com/alisoncardosoo/click-plus/releases/latest) e baixe `ClickPlus-0.2.0-macOS-universal.zip`.
 2. Extraia o ZIP e mova `Click +.app` para a pasta **Aplicativos**.
 3. Abra o aplicativo e siga as instruções de [primeiro uso](#primeiro-uso).
 
@@ -356,6 +360,12 @@ A implementação consulta interfaces e formatos documentados em:
 - [Solaar — catálogo de recursos HID++](https://github.com/pwr-Solaar/Solaar/blob/master/docs/features.md).
 
 Logitech e os nomes de seus produtos pertencem aos respectivos titulares. O Click + é um projeto independente.
+
+## Avisos de bateria
+
+Em **Ajustes → Avisos de bateria**, ative as notificações e permita os avisos no macOS. Os limites iniciais são 20% e 5%; ambos e o som podem ser ajustados. O recurso acompanha o mouse selecionado, teclados e componentes Bluetooth cujos níveis estejam disponíveis. O aplicativo precisa continuar em execução, inclusive na barra de menus.
+
+Cada limite avisa uma vez por periférico/componente até uma leitura confirmar recarga acima do limite de bateria baixa com margem de 3 pontos (limitada a 99%). O histórico permanece salvo ao reiniciar. Acessórios que não informam bateria não geram avisos.
 
 ## Licença
 

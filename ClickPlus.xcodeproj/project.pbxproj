@@ -10,10 +10,14 @@
 		0150D929E8CE2C5F644D3F80 /* AccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C522FFD41A3136F9D00D962D /* AccessibilityService.swift */; };
 		06BE969B18B8645740E18C03 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475699F545553C28F93CC866 /* AppState.swift */; };
 		06ECA98FB7FBFFE8901ACA73 /* InputBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A305823FA0E65236DCB8FD /* InputBehaviorTests.swift */; };
+		076076A05D0BCB195B7727A9 /* BluetoothBatteryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4F37CB356F647810FD7836 /* BluetoothBatteryService.swift */; };
+		0939D20A3E39D79132B94D42 /* GalaxyBudsBatteryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D033B47B8F73B6F742753 /* GalaxyBudsBatteryReader.swift */; };
 		132948AE192080C77BCC776C /* WindowDockBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A276B7119EB3034D5EFA6 /* WindowDockBridge.swift */; };
 		1A5B492E94EFDAFD0754C2A0 /* ActionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E2FA07C67CE1E4FD765540 /* ActionService.swift */; };
 		1C57E1B598686C11F4F05657 /* LogitechCompatibilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C8DDBC4BE3E1F10E5B5A07 /* LogitechCompatibilityTests.swift */; };
 		2324330378E393EF50B377CF /* EventEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F584BF1081AB92E632A7C35A /* EventEngine.swift */; };
+		28C0F8F32E46C9E71527D1F8 /* BluetoothBatteryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6326A3887477117352D9D1D /* BluetoothBatteryTests.swift */; };
+		40D5BC3BA3DEC17045202801 /* BluetoothSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB97E78166C06F1BD1DAC2 /* BluetoothSettings.swift */; };
 		51605236A50FB19DB0142E1C /* ClickPlusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119A2DECEC9EED0BC667F46 /* ClickPlusApp.swift */; };
 		5A7551F49EA255BEA59A81BE /* MenuPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE6A743DA679C56A255A12 /* MenuPanel.swift */; };
 		5D1DE708F40AC16023BC22F9 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14504AB66FBF973AAE68F78F /* Preferences.swift */; };
@@ -21,6 +25,7 @@
 		63C9D6E8389D94EF579A3920 /* ButtonSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D6E91F562E9D22EC8D6670 /* ButtonSettings.swift */; };
 		643CF3CBC3ACB84420C75409 /* HardwareService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142F280E80F7B8D9C5DE6132 /* HardwareService.swift */; };
 		6608B0094BB72FC0C29014EC /* TrackpadSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B2D68CE3285F81A10353A /* TrackpadSettings.swift */; };
+		6BA106E5CD84D71D2536B02C /* BatteryAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E449FBCC7E1C95BD456C9B85 /* BatteryAlertTests.swift */; };
 		7643201FE0DC7BF8E7A32D3A /* ScrollSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091ED5C28C28394739B433F /* ScrollSettings.swift */; };
 		7FAA74801134E3DB2B4043BF /* ButtonActionEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C8C63C97F66F15DFBCFE2A /* ButtonActionEditor.swift */; };
 		91A226644610257BEB700F4F /* DeviceIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9817091FAA414F759D8FF1CE /* DeviceIdentity.swift */; };
@@ -28,12 +33,15 @@
 		C0B3F0DAABB2E4C1BEB1717C /* KeyboardSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89537A585000375C6D7635C /* KeyboardSettings.swift */; };
 		C34315B74BD8C3575269B284 /* TrackpadEdgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC9A87E44CBCD5A20B4DD5 /* TrackpadEdgeTests.swift */; };
 		C5681B2E6EAEF214847D43D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61D4C68A82201E7B6A4BA35 /* Assets.xcassets */; };
+		C5682BA1559E084C2974B80C /* BatteryAlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3FA4E01E73A461D02D2119 /* BatteryAlertService.swift */; };
 		C9075FAFA2B7ADC18E308045 /* MouseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B3BAC88D5D7F3EFBCF2C9D /* MouseSettings.swift */; };
 		C91898A805997F5248FCB7E5 /* ButtonCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE0F77176A37F265522EBA0 /* ButtonCapture.swift */; };
 		CA655E93F2AEFDAA093CFB5A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89433A5D2407C34C93817FDB /* ContentView.swift */; };
 		D5E7420CFF1298CCBD3BD196 /* PointerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F0B8874E22329FDC3A569 /* PointerController.swift */; };
+		E288D4F02D592114E5E03FE4 /* GalaxyBudsBatteryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414B22C8D7932FDA1650EAD2 /* GalaxyBudsBatteryTests.swift */; };
 		EAE52F743D7AD142F21F17B9 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826D9B6836B0E14972CBD5D9 /* CoreTests.swift */; };
 		EF8C9C2FF09D67772B39C1D1 /* TrackpadEdgeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9A725F704DAB36DF9FF90A /* TrackpadEdgeService.swift */; };
+		FF9300370FFF3895CD8C0BAA /* BatteryAlertSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C929F6B0F61E70595C8DB57 /* BatteryAlertSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,14 +59,18 @@
 		142F280E80F7B8D9C5DE6132 /* HardwareService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareService.swift; sourceTree = "<group>"; };
 		14504AB66FBF973AAE68F78F /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		173C7F8CC8FE4ABAB5736CAC /* TrackpadEdges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackpadEdges.swift; sourceTree = "<group>"; };
+		1C4F37CB356F647810FD7836 /* BluetoothBatteryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothBatteryService.swift; sourceTree = "<group>"; };
 		21940EE5865EBD505767BE72 /* ClickPlusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClickPlusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AEC9A87E44CBCD5A20B4DD5 /* TrackpadEdgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackpadEdgeTests.swift; sourceTree = "<group>"; };
+		414B22C8D7932FDA1650EAD2 /* GalaxyBudsBatteryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalaxyBudsBatteryTests.swift; sourceTree = "<group>"; };
 		475699F545553C28F93CC866 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		55E2FA07C67CE1E4FD765540 /* ActionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionService.swift; sourceTree = "<group>"; };
+		5C929F6B0F61E70595C8DB57 /* BatteryAlertSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryAlertSettings.swift; sourceTree = "<group>"; };
 		5DCF5AA16073DF4FBAAF7092 /* ClickPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClickPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67B3BAC88D5D7F3EFBCF2C9D /* MouseSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseSettings.swift; sourceTree = "<group>"; };
 		6AE0F77176A37F265522EBA0 /* ButtonCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCapture.swift; sourceTree = "<group>"; };
 		7119A2DECEC9EED0BC667F46 /* ClickPlusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickPlusApp.swift; sourceTree = "<group>"; };
+		759D033B47B8F73B6F742753 /* GalaxyBudsBatteryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalaxyBudsBatteryReader.swift; sourceTree = "<group>"; };
 		8091ED5C28C28394739B433F /* ScrollSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollSettings.swift; sourceTree = "<group>"; };
 		826D9B6836B0E14972CBD5D9 /* CoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTests.swift; sourceTree = "<group>"; };
 		846B2D68CE3285F81A10353A /* TrackpadSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackpadSettings.swift; sourceTree = "<group>"; };
@@ -71,9 +83,13 @@
 		B4D6E91F562E9D22EC8D6670 /* ButtonSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSettings.swift; sourceTree = "<group>"; };
 		B61D4C68A82201E7B6A4BA35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C522FFD41A3136F9D00D962D /* AccessibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityService.swift; sourceTree = "<group>"; };
+		CE3FA4E01E73A461D02D2119 /* BatteryAlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryAlertService.swift; sourceTree = "<group>"; };
+		D6326A3887477117352D9D1D /* BluetoothBatteryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothBatteryTests.swift; sourceTree = "<group>"; };
 		DE1F0B8874E22329FDC3A569 /* PointerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerController.swift; sourceTree = "<group>"; };
 		E2C8DDBC4BE3E1F10E5B5A07 /* LogitechCompatibilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogitechCompatibilityTests.swift; sourceTree = "<group>"; };
+		E449FBCC7E1C95BD456C9B85 /* BatteryAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryAlertTests.swift; sourceTree = "<group>"; };
 		E4A305823FA0E65236DCB8FD /* InputBehaviorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBehaviorTests.swift; sourceTree = "<group>"; };
+		EBBB97E78166C06F1BD1DAC2 /* BluetoothSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothSettings.swift; sourceTree = "<group>"; };
 		F584BF1081AB92E632A7C35A /* EventEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEngine.swift; sourceTree = "<group>"; };
 		F6BE6A743DA679C56A255A12 /* MenuPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPanel.swift; sourceTree = "<group>"; };
 		F89537A585000375C6D7635C /* KeyboardSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardSettings.swift; sourceTree = "<group>"; };
@@ -108,8 +124,11 @@
 			children = (
 				C522FFD41A3136F9D00D962D /* AccessibilityService.swift */,
 				55E2FA07C67CE1E4FD765540 /* ActionService.swift */,
+				CE3FA4E01E73A461D02D2119 /* BatteryAlertService.swift */,
+				1C4F37CB356F647810FD7836 /* BluetoothBatteryService.swift */,
 				9817091FAA414F759D8FF1CE /* DeviceIdentity.swift */,
 				F584BF1081AB92E632A7C35A /* EventEngine.swift */,
+				759D033B47B8F73B6F742753 /* GalaxyBudsBatteryReader.swift */,
 				142F280E80F7B8D9C5DE6132 /* HardwareService.swift */,
 				DE1F0B8874E22329FDC3A569 /* PointerController.swift */,
 				8F9A725F704DAB36DF9FF90A /* TrackpadEdgeService.swift */,
@@ -130,7 +149,10 @@
 		A4812CC09AE2C5A695C10205 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				E449FBCC7E1C95BD456C9B85 /* BatteryAlertTests.swift */,
+				D6326A3887477117352D9D1D /* BluetoothBatteryTests.swift */,
 				826D9B6836B0E14972CBD5D9 /* CoreTests.swift */,
+				414B22C8D7932FDA1650EAD2 /* GalaxyBudsBatteryTests.swift */,
 				E4A305823FA0E65236DCB8FD /* InputBehaviorTests.swift */,
 				E2C8DDBC4BE3E1F10E5B5A07 /* LogitechCompatibilityTests.swift */,
 				3AEC9A87E44CBCD5A20B4DD5 /* TrackpadEdgeTests.swift */,
@@ -141,6 +163,8 @@
 		CAE45C79D871FD93D7E2362C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5C929F6B0F61E70595C8DB57 /* BatteryAlertSettings.swift */,
+				EBBB97E78166C06F1BD1DAC2 /* BluetoothSettings.swift */,
 				96C8C63C97F66F15DFBCFE2A /* ButtonActionEditor.swift */,
 				B4D6E91F562E9D22EC8D6670 /* ButtonSettings.swift */,
 				89433A5D2407C34C93817FDB /* ContentView.swift */,
@@ -285,6 +309,10 @@
 				0150D929E8CE2C5F644D3F80 /* AccessibilityService.swift in Sources */,
 				1A5B492E94EFDAFD0754C2A0 /* ActionService.swift in Sources */,
 				06BE969B18B8645740E18C03 /* AppState.swift in Sources */,
+				C5682BA1559E084C2974B80C /* BatteryAlertService.swift in Sources */,
+				FF9300370FFF3895CD8C0BAA /* BatteryAlertSettings.swift in Sources */,
+				076076A05D0BCB195B7727A9 /* BluetoothBatteryService.swift in Sources */,
+				40D5BC3BA3DEC17045202801 /* BluetoothSettings.swift in Sources */,
 				7FAA74801134E3DB2B4043BF /* ButtonActionEditor.swift in Sources */,
 				C91898A805997F5248FCB7E5 /* ButtonCapture.swift in Sources */,
 				63C9D6E8389D94EF579A3920 /* ButtonSettings.swift in Sources */,
@@ -293,6 +321,7 @@
 				5D9B764654D7907699A8EC73 /* Controls.swift in Sources */,
 				91A226644610257BEB700F4F /* DeviceIdentity.swift in Sources */,
 				2324330378E393EF50B377CF /* EventEngine.swift in Sources */,
+				0939D20A3E39D79132B94D42 /* GalaxyBudsBatteryReader.swift in Sources */,
 				643CF3CBC3ACB84420C75409 /* HardwareService.swift in Sources */,
 				C0B3F0DAABB2E4C1BEB1717C /* KeyboardSettings.swift in Sources */,
 				5A7551F49EA255BEA59A81BE /* MenuPanel.swift in Sources */,
@@ -311,7 +340,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BA106E5CD84D71D2536B02C /* BatteryAlertTests.swift in Sources */,
+				28C0F8F32E46C9E71527D1F8 /* BluetoothBatteryTests.swift in Sources */,
 				EAE52F743D7AD142F21F17B9 /* CoreTests.swift in Sources */,
+				E288D4F02D592114E5E03FE4 /* GalaxyBudsBatteryTests.swift in Sources */,
 				06ECA98FB7FBFFE8901ACA73 /* InputBehaviorTests.swift in Sources */,
 				1C57E1B598686C11F4F05657 /* LogitechCompatibilityTests.swift in Sources */,
 				C34315B74BD8C3575269B284 /* TrackpadEdgeTests.swift in Sources */,
@@ -365,7 +397,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = A4DR63XYGA;
 				ENABLE_APP_SANDBOX = NO;
@@ -380,7 +412,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -445,7 +477,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = A4DR63XYGA;
 				ENABLE_APP_SANDBOX = NO;
@@ -466,7 +498,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -491,6 +523,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Click +";
 				INFOPLIST_KEY_CFBundleName = "Click +";
 				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Consultar a bateria de cada lado dos seus fones Samsung conectados.";
 				INFOPLIST_KEY_NSInputMonitoringUsageDescription = "Identificar os eventos do seu mouse sem alterar o trackpad.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -532,6 +565,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Click +";
 				INFOPLIST_KEY_CFBundleName = "Click +";
 				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Consultar a bateria de cada lado dos seus fones Samsung conectados.";
 				INFOPLIST_KEY_NSInputMonitoringUsageDescription = "Identificar os eventos do seu mouse sem alterar o trackpad.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

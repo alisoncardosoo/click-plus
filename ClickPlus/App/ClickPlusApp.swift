@@ -6,14 +6,14 @@ import SwiftUI
     @Environment(\.openWindow) private var openWindow
     var body: some Scene {
         WindowGroup("Click +", id: "main") {
-            ContentView().background(WindowDockBridge()).environmentObject(state).tint(Color.clickAccent).onAppear { delegate.state = state }
+            ContentView().background(WindowDockBridge()).environmentObject(state).environmentObject(state.bluetooth).tint(Color.clickAccent).onAppear { delegate.state = state }
         }.defaultSize(width: 980, height: 790)
         MenuBarExtra("Click +", systemImage: "computermouse") {
             MenuPanel {
                 NSApp.setActivationPolicy(.regular)
                 openWindow(id: "main")
                 NSApp.activate(ignoringOtherApps: true)
-            }.environmentObject(state)
+            }.environmentObject(state).environmentObject(state.bluetooth)
         }.menuBarExtraStyle(.window)
 
     }

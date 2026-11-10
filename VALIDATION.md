@@ -170,3 +170,63 @@ A janela de teste de velocidade/rolagem não registrou eventos físicos; ajustes
 - 50 testes passaram. Build Release universal aprovado e assinatura Apple Development validada por codesign --verify --deep --strict. Sem Developer ID ou notarização; não há garantia de aceitação pelo Gatekeeper em outro Mac. Execução Intel não validada fisicamente.
 - ZIP extraído e instalado em /Applications/Click +.app. Executável instalado com SHA-256 idêntico ao build Release. Processo confirmado nesse caminho e interface real inspecionada: M650 L, K950, velocidade 1,3, captura lateral e inicialização com o macOS preservados; Acessibilidade exibida como permitida.
 - Verificação desta etapa confirma instalação e abertura; não substitui novo aceite físico de todos os controles ou da sensação háptica.
+
+
+## Bluetooth — 10/11/2026
+
+- Consulta local `system_profiler SPBluetoothDataType -json`, fora da thread principal, sem conectar ou parear acessórios. Atualização a cada 30 segundos e ao abrir o menu; consulta manual na área Bluetooth.
+- Somente `device_connected` alimenta a interface. Níveis principal, esquerdo, direito e estojo são opcionais e validados entre 0 e 100; falhas limpam leituras anteriores. Mouse/teclado Logitech continuam com suas leituras HID++.
+- 54 testes passaram, incluindo quatro novos testes de interpretação, dispositivos desconectados, deduplicação, bateria ausente e percentuais inválidos.
+- Consulta física identificou Galaxy Buds 2 de Alison como pareado e desconectado. A leitura de bateria desse fone permanece sem validação física; depende dos dados expostos pelo macOS.
+
+
+## Avisos de bateria — 10/11/2026
+
+- Notificações locais via UserNotifications, ativação explícita em Ajustes, limites iniciais de 20% e 5%, limites configuráveis e som opcional. Preferências e histórico de avisos persistem localmente.
+- Leituras do mouse selecionado, teclados e componentes Bluetooth alimentam os alertas. Níveis inválidos são ignorados; ausências não apagam o histórico. Uma primeira leitura crítica gera somente o aviso crítico; nova rodada exige recarga confirmada acima do limite baixo com margem contra oscilações.
+- Build Debug e abertura via `./script/build_and_run.sh --verify` aprovados; 58 testes passaram, incluindo limites personalizados, deduplicação, independência entre dispositivos, recarga e persistência do histórico. Tela Ajustes inspecionada com os controles de ativação, 20%, 5% e som.
+- Não foi enviada notificação real nem concedida permissão pelo usuário nesta validação. O recurso permanece inicialmente desativado; a entrega de um banner real depende da autorização e das configurações do macOS.
+
+## Altura da lista no menu — 10/11/2026
+
+- A lista de baterias passou a reservar altura conforme a quantidade de dispositivos/componentes, limitada a 440 pontos. Evita depender da altura ideal de um ScrollView com apenas maxHeight dentro do MenuBarExtra.
+- Build Debug e reabertura via `./script/build_and_run.sh --verify` aprovados. Mouse M650 L (45%) e teclado K950 (100%) confirmados na janela principal. A superfície da barra de menus não ficou acessível à automação; a exibição no popover ainda precisa de confirmação visual.
+
+
+## Galaxy Buds2 — bateria por lado — 10/11/2026
+
+- Implementada recepção passiva de status Samsung pelo serviço RFCOMM `2e73a4ad-332d-41fc-90e2-16bef06523f2`, somente para Buds2 já conectado e pareado. Consulta assíncrona com prazo de 5 segundos; fecha o canal ao obter status ou falhar. Não envia comandos. Se falhar, mantém a alternativa do relatório macOS.
+- Parser valida enquadramento e CRC16-CCITT, aceita callbacks fragmentados/concatenados e ignora mensagens que não sejam status `0x60`/`0x61`.
+- Leitura física inicial: esquerdo 100%, direito 100%. Após compilar e abrir a versão atualizada, a interface Bluetooth foi inspecionada: **Esquerdo: 99% · Direito: 100%** no Galaxy Buds 2 de Alison. O estojo não informou um nível utilizável nessa consulta.
+- 63 testes passaram, incluindo cinco novos testes de protocolo com captura real, integridade, fragmentação, limites e escopo de modelo. Build e abertura confirmados por `./script/build_and_run.sh --verify`.
+- Referência dos campos do protocolo: https://github.com/timschneeb/GalaxyBudsClient/blob/master/GalaxyBudsClient/Message/Decoder/ExtendedStatusUpdateDecoder.cs e `StatusUpdateDecoder.cs` no mesmo diretório. Implementação Swift própria, sem dependência desse cliente.
+
+
+## Estojo e menu de dispositivos conectados — 10/11/2026
+
+- A consulta Samsung agora acumula status por até 5 segundos quando a primeira mensagem não contém bateria válida do estojo, incluindo mensagens concatenadas no mesmo callback. Encerra antes se receber o estojo. Não simula porcentagem nem gera leitura/alerta para os valores de indisponibilidade 0, 101 ou 255.
+- Estojo sem leitura tem indicação explícita na área Bluetooth e no menu, orientando a abrir a tampa com um fone dentro. A porcentagem física do estojo permaneceu indisponível na consulta desta validação; a interface exibiu esquerdo 99%, direito 100% e “Bateria não informada” para o estojo.
+- Menu remove os placeholders de mouse/teclado desconectados e dimensiona sua lista conforme as linhas visíveis. A lista Bluetooth descarta acessórios desconectados antes da consulta Samsung e verifica novamente a conexão ao concluir.
+- 65 testes passaram, com cobertura adicional da mensagem tardia do estojo e valores de indisponibilidade. Build e abertura local passaram; interface Bluetooth inspecionada.
+
+
+## Correção da captura do estojo em tempo real — 10/11/2026
+
+- Substituída a consulta Samsung de 5 segundos por uma sessão de status RFCOMM mantida enquanto o Buds2 está conectado. Novos status atualizam imediatamente a interface; o refresh de 30 segundos reconcilia a lista e tenta recuperar sessões encerradas. A sessão é fechada no shutdown e quando o dispositivo deixa a lista de conectados. Nenhum comando é enviado.
+- A captura física do estojo informou 99%. Novo teste usa essa captura real e valida esquerdo 98%, direito 99%, estojo 99%.
+- **Validação física na versão atualizada:** interface Bluetooth mostrou “Esquerdo: 100% · Direito: 100% · Estojo: 99%”. Assim, a porcentagem do estojo foi efetivamente conferida na tela; a validação anterior de indisponibilidade não demonstrava o funcionamento físico.
+- 66 testes passaram. Build e abertura da versão atualizada confirmados com `./script/build_and_run.sh --verify`.
+
+
+## Última bateria do estojo ao fechar a tampa — 10/11/2026
+
+- Histórico em memória por endereço Bluetooth mantém apenas o último nível válido do estojo e sua data/hora. Quando o status deixa de informar o estojo, a interface continua mostrando esse nível como “Última leitura”. Uma nova medição limpa a marcação histórica e substitui o valor. Histórico limitado à execução atual do app; dispositivos desconectados continuam ocultos.
+- Leituras históricas não entram na avaliação de alertas de bateria, evitando tratar informação anterior como nova medição.
+- 69 testes passaram. Três novos testes validam preservação da porcentagem e do horário, substituição pela próxima leitura, indisponibilidade sem histórico e isolamento entre dispositivos. A sequência física de abrir/fechar a tampa não foi repetida nesta etapa.
+
+
+## Release 0.2.0 (build 2) — 10/11/2026
+
+- 69 testes passaram após atualizar a versão. Pacote Release universal (arm64/x86_64) compilado e assinatura Apple Development verificada. O pacote continua sem notarização.
+- Instalado o mesmo binário do pacote em `/Applications/Click +.app`; versão 0.2.0, build 2, hash SHA-256 do executável idêntico ao artefato de Release. A instalação anterior foi preservada em backup temporário recuperável, sem alterar preferências.
+- Processo da instalação em Aplicativos confirmado; interface e área Bluetooth abertas e inspecionadas. Na verificação de instalação não havia outro periférico Bluetooth conectado, então não foi repetida a leitura física do estojo nessa etapa. As leituras físicas de Buds2 estão registradas acima.

@@ -27,6 +27,8 @@ import IOKit.hid
     @Published var message: String?
     let engine = EventEngine()
     let hardware = HardwareService()
+    let bluetooth = BluetoothBatteryService()
+    let batteryAlerts = BatteryAlertService()
     private var timer: Timer?
     private var lastTrackpadAllowed = false
     init() {
@@ -53,8 +55,8 @@ import IOKit.hid
         } }
         engine.onDiagnostics = { [weak self] value in DispatchQueue.main.async { self?.diagnostics = value } }
         hardware.onMouseDevices = { [weak self] values in DispatchQueue.main.async { self?.mouseDevices = values } }
-        hardware.onKeyboardBatteries = { [weak self] values in DispatchQueue.main.async { self?.keyboardBatteries = values } }
-        hardware.onChange = { [weak self] value in DispatchQueue.main.async { self?.device = value; self?.engine.setDevice(value) } }
+        hardware.onKeyboardBatteries = { [weak self] values in DispatchQueue.main.async { self?.keyboardBatteries = values; self?.evaluateBatteryAlerts() } }
+        hardware.onChange = { [weak self] value in DispatchQueue.main.async { self?.device = value; self?.engine.setDevice(value); self?.evaluateBatteryAlerts() } }
         hardware.onPanButtonState = { [weak self] button, down in self?.engine.hardwarePanState(button,down: down) }
         hardware.onPanCancelled = { [weak self] in self?.engine.cancelHardwarePan() }
         hardware.onMappedButton = { [weak self] button in self?.engine.hardwareButtonReleased(button) }
@@ -64,7 +66,10 @@ import IOKit.hid
         } }
         hardware.onDisconnect = { [weak self] in self?.engine.devicesChanged() }
         if trusted { hardware.configureButtons(preferences) }
+        batteryAlerts.start()
+        bluetooth.onDevicesChanged = { [weak self] in self?.evaluateBatteryAlerts() }
         hardware.start()
+        bluetooth.start()
         engine.configure(preferences)
         engine.start()
         timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { [weak self] _ in
@@ -90,6 +95,22 @@ import IOKit.hid
         }
         NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.willSleepNotification, object: nil, queue: .main) { [weak self] _ in self?.trackpad.stop(); self?.hardware.stopButtons(); self?.engine.suspend() }
         NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.didWakeNotification, object: nil, queue: .main) { [weak self] _ in self?.engine.resume(); if let self { self.configureTrackpad(); self.hardware.configureButtons(self.preferences); self.hardware.refresh() } }
+    }
+    private func evaluateBatteryAlerts() {
+        var readings: [BatteryReading] = []
+        if let id = device.id, let percent = device.battery {
+            readings.append(.init(id: "mouse.\(id)", name: device.name, percent: percent))
+        }
+        readings += keyboardBatteries.compactMap { keyboard in
+            keyboard.percent.map { .init(id: "keyboard.\(keyboard.id)", name: keyboard.name, percent: $0) }
+        }
+        for accessory in bluetooth.devices {
+            readings += accessory.levels.filter { $0.lastKnownAt == nil }.map { level in
+                .init(id: "bluetooth.\(accessory.id).\(level.id)",
+                      name: accessory.name + (level.label.isEmpty ? "" : " · \(level.label)"), percent: level.percent)
+            }
+        }
+        batteryAlerts.observe(readings)
     }
     private func configureTrackpad() {
         lastTrackpadAllowed = trusted && inputAccess && preferences.enabled
@@ -140,6 +161,7 @@ import IOKit.hid
         catch { message = error.localizedDescription }
     }
     func shutdown(completion: @escaping (Bool) -> Void) {
+        bluetooth.stop()
         trackpad.stop()
         engine.suspend { [hardware] in
             hardware.stopButtons {

@@ -2,7 +2,15 @@ import SwiftUI
 
 struct MenuPanel: View {
     @EnvironmentObject var state: AppState
+    @EnvironmentObject var bluetooth: BluetoothBatteryService
     let openSettings: () -> Void
+    // MenuBarExtra asks for an ideal content size. A ScrollView with only a
+    // maximum height can report zero and hide all rows in the status popover.
+    private var batteryListHeight: CGFloat {
+        let rows = (state.device.id == nil ? 0 : 1) + state.keyboardBatteries.count
+            + bluetooth.devices.reduce(0) { $0 + max(1, $1.levels.count) + ($1.caseBatteryUnavailable ? 1 : 0) }
+        return min(440, 25 + CGFloat(max(1, rows)) * (rows == 0 ? 35 : 105) + (bluetooth.error == nil ? 0 : 25))
+    }
     var body: some View {
         VStack(alignment: .leading, spacing: 18) {
             HStack(spacing: 10) {
@@ -16,17 +24,39 @@ struct MenuPanel: View {
                 }
                 Spacer(minLength: 8)
             }
-            VStack(alignment: .leading,spacing: 9) {
-                Text("BATERIAS").font(.system(size: 10,weight: .semibold)).tracking(1.4).foregroundStyle(.secondary)
-                MenuBatteryRow(name: state.device.name, category: "Mouse", icon: "computermouse.fill", percent: state.device.battery)
-                if state.keyboardBatteries.isEmpty {
-                    MenuBatteryRow(name: "Teclado Logitech",category: "Não conectado",icon: "keyboard",percent: nil)
-                } else {
-                    ForEach(state.keyboardBatteries) { keyboard in
-                        MenuBatteryRow(name: keyboard.name,category: "Teclado",icon: "keyboard",percent: keyboard.percent)
+            ScrollView {
+                VStack(alignment: .leading,spacing: 9) {
+                    Text("BATERIAS").font(.system(size: 10,weight: .semibold)).tracking(1.4).foregroundStyle(.secondary)
+                    if state.device.id != nil {
+                        MenuBatteryRow(name: state.device.name, category: "Mouse", icon: "computermouse.fill", percent: state.device.battery)
+                    }
+                    if !state.keyboardBatteries.isEmpty {
+                        ForEach(state.keyboardBatteries) { keyboard in
+                            MenuBatteryRow(name: keyboard.name,category: "Teclado",icon: "keyboard",percent: keyboard.percent)
+                        }
+                    }
+                    ForEach(bluetooth.devices) { device in
+                        if device.levels.isEmpty {
+                            MenuBatteryRow(name: device.name, category: "Bluetooth", icon: device.icon, percent: nil)
+                        } else {
+                            ForEach(device.levels) { level in
+                                MenuBatteryRow(name: device.name, category: level.label.isEmpty ? "Bluetooth" : level.label, icon: device.icon, percent: level.percent,
+                                               readingNote: level.readingNote)
+                            }
+                        }
+                        if device.caseBatteryUnavailable {
+                            MenuBatteryRow(name: device.name, category: "Estojo", icon: "earbuds.case", percent: nil,
+                                           unavailableMessage: "Abra o estojo com um fone dentro para consultar")
+                        }
+                    }
+                    if state.device.id == nil && state.keyboardBatteries.isEmpty && bluetooth.devices.isEmpty {
+                        Text("Nenhum dispositivo conectado").font(.caption).foregroundStyle(.secondary)
+                    }
+                    if bluetooth.error != nil {
+                        Text("Consulta Bluetooth indisponível").font(.caption).foregroundStyle(.secondary)
                     }
                 }
-            }
+            }.frame(height: batteryListHeight)
             HStack(spacing: 5) {
                 Image(systemName: "arrow.triangle.2.circlepath").font(.system(size: 9))
                 Text("Atualização automática · 30 s").font(.system(size: 10))
@@ -41,7 +71,7 @@ struct MenuPanel: View {
         }
         .padding(20).frame(width: 330)
         .tint(Color.clickAccent)
-        .onAppear { state.hardware.refresh() }
+        .onAppear { state.hardware.refresh(); bluetooth.refresh() }
     }
 }
 
@@ -50,6 +80,8 @@ private struct MenuBatteryRow: View {
     let category: String
     let icon: String
     let percent: Int?
+    var readingNote: String? = nil
+    var unavailableMessage = "Bateria não informada nesta consulta"
     private var color: Color { (percent ?? 100) <= 20 ? .orange : .clickAccent }
     var body: some View {
         VStack(spacing: 13) {
@@ -71,6 +103,10 @@ private struct MenuBatteryRow: View {
                     Text("—").font(.system(size: 23,weight: .light)).foregroundStyle(.tertiary)
                 }
             }
+            if let readingNote {
+                Text(readingNote).font(.system(size: 10)).foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
             if let percent {
                 GeometryReader { geometry in
                     Capsule().fill(color.opacity(0.12))
@@ -80,7 +116,7 @@ private struct MenuBatteryRow: View {
                         }
                 }.frame(height: 5)
             } else {
-                Text(category == "Não conectado" ? "Conecte para consultar a bateria" : "Bateria não informada nesta consulta")
+                Text(unavailableMessage)
                     .font(.system(size: 10)).foregroundStyle(.secondary).frame(maxWidth: .infinity,alignment: .leading)
             }
         }
@@ -88,6 +124,6 @@ private struct MenuBatteryRow: View {
         .background(Color.primary.opacity(0.035),in: RoundedRectangle(cornerRadius: 13))
         .overlay(RoundedRectangle(cornerRadius: 13).strokeBorder(color.opacity(0.12),lineWidth: 1))
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(name), \(percent.map { "\($0) por cento" } ?? category + ", bateria não informada")")
+        .accessibilityLabel("\(name), \(category), \(percent.map { "\($0) por cento" } ?? unavailableMessage)\(readingNote.map { ", " + $0 } ?? "")")
     }
 }

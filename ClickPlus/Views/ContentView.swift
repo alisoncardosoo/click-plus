@@ -4,7 +4,7 @@ struct ContentView: View {
     @EnvironmentObject var state: AppState
     @State private var section = "Mouse"
     @State private var reset = false
-    private let items = [("Mouse","computermouse"),("Teclado","keyboard"),("Trackpad","rectangle.and.hand.point.up.left"),("Ajustes","gearshape")]
+    private let items = [("Mouse","computermouse"),("Teclado","keyboard"),("Trackpad","rectangle.and.hand.point.up.left"),("Bluetooth","wave.3.right"),("Ajustes","gearshape")]
     var body: some View {
         NavigationSplitView {
             VStack(alignment: .leading, spacing: 0) {
@@ -36,6 +36,7 @@ struct ContentView: View {
                 case "Mouse": MouseWorkspace()
                 case "Teclado": KeyboardSettings()
                 case "Trackpad": TrackpadSettings()
+                case "Bluetooth": BluetoothSettings()
                 case "Ajustes": settings
                 default: ScrollSettings()
                 }
@@ -60,6 +61,7 @@ struct ContentView: View {
         case "Mouse": return "Precisão no movimento. Controle na sua mão."
         case "Teclado": return "Seu teclado e suas informações de bateria."
         case "Trackpad": return "Um gesto em cada borda. O centro continua livre."
+        case "Bluetooth": return "Bateria dos seus fones e acessórios conectados."
         case "Ajustes": return "Tudo pronto para funcionar do seu jeito."
         default: return "Encontre o ritmo ideal para cada página."
         }
@@ -82,6 +84,7 @@ struct ContentView: View {
                 Button("Localizar aplicativo no Finder") { state.revealApplication() }
                 Text("Nos Ajustes do Sistema, habilite Click +. Se ele não aparecer, use o botão + para adicionar esta versão. O botão Localizar aplicativo abre sua pasta no Finder. A leitura HID permite consultar DPI e bateria.").font(.caption).foregroundStyle(.secondary)
             }
+            BatteryAlertSettings(alerts: state.batteryAlerts)
             Section("Aplicativo") {
                 Toggle("Iniciar com o macOS", isOn: Binding(get: { state.launchAtLogin }, set: { state.login($0) }))
                 Button("Restaurar configurações…", role: .destructive) { reset = true }
@@ -104,7 +107,7 @@ struct ContentView: View {
             }
         }.formStyle(.grouped)
         .confirmationDialog("Restaurar as configurações originais?", isPresented: $reset) {
-            Button("Restaurar", role: .destructive) { state.preferences = Preferences(); state.hardware.restoreDPI() }
+            Button("Restaurar", role: .destructive) { state.preferences = Preferences(); state.batteryAlerts.update(BatteryAlertPreferences()); state.hardware.restoreDPI() }
         }
     }
 }
